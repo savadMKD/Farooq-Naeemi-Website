@@ -1,8 +1,58 @@
+:root {
+  --primary-color: #20B61D;
+  --pure-color: #ffffff;
+  --dark-color: #000000;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: poppins;
 }
 
-a {
-  color: #00B7FF;
+/* --------------------- Navigation bar ----------------------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+header .navbar_mobile_icon {
+  display: none;
+}
+header ul {
+  display: flex;
+  list-style: none;
+}
+header ul li {
+  padding: 19px 24px;
+}
+header ul li a {
+  text-decoration: none;
+  font-size: 17px;
+}
+header ul li a:hover {
+  text-decoration: underline;
+  color: var(--primary-color);
+}
+
+@media screen and (max-width: 768px){
+  header .navbar_mobile_icon {
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  header .navbar_mobile_icon img {
+    width: 25px;
+    cursor: pointer;
+  }
+  header .logo img {
+    width: 160px;
+  }
+  header ul {
+    display: none;
+  }
 }
