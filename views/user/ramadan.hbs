@@ -1,5 +1,5 @@
 <section class="search__bar">
-    <input type="search">
+    <input type="text" placeholder="Search Here...........">
 </section>
 <main>
     <section class="cards">
@@ -60,7 +60,7 @@
                 <img src="/images/thumb_5.jpg" alt="thumbnail image">
             </div>
             <div class="card__content">
-                <p class="card__title text--medium">Swalathinte Madhuryam</p>
+                <p class="card__title text--medium">Salafikk Marupadi</p>
                 <div class="card__info">
                     <p class="text--medium">Watch Video</p>
                     <p class="card__price text--medium">Part 1</p>
@@ -69,3 +69,27 @@
         </div>
     </section>
 </main>
+
+<script>
+    input = document.querySelector('input');
+    speeches = document.querySelectorAll('.card')
+    input.addEventListener('input', filter);
+
+    function filter() {
+        search = input.value.toLowerCase();
+
+        speeches.forEach(function (card) {
+            text = card.innerHTML.toLowerCase();
+            found = text.indexOf(search);
+            if(search == ' '){
+                card.style.display = "block";
+            }
+            else if(found == -1){
+                card.style.display = "none";
+            }
+            else {
+                card.style.display = "block";
+            }
+        });
+    }
+</script>
