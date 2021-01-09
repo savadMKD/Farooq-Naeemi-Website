@@ -3,6 +3,9 @@
   --pure-color: #ffffff;
   --dark-color: #000000;
 }
+a {
+  text-decoration: none;
+}
 * {
   margin: 0;
   padding: 0;
@@ -65,6 +68,37 @@ header ul li a:hover {
 }
 .hero_content .txt_box p {
   margin: 5px;
+}
+
+/* -------------------- speeches section ----------------- */
+.speech {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.speech_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.speech_box {
+  padding: 50px 20px 20px 50px;
+}
+.speech_box img {
+  height: 300px;
+}
+.speech_box .info {
+  margin: 0;
+  width: 100%;
+  height: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #F75940;
+  justify-content: center;
+  color: #ffffff;
+}
+.speech_box .info h3 {
+  font-weight: 400;
 }
 
 @media screen and (max-width: 768px){
