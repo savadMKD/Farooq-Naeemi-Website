@@ -127,6 +127,9 @@ header ul li a:hover {
   .hero_content .txt_box h1 {
     font-size: 30px;
   }
+  .speech_container {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ----------------- Speeches Video Section --------------------- */

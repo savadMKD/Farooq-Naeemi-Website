@@ -8,6 +8,7 @@ var userRouter = require('./routes/user');
 var adminRouter = require('./routes/admin');
 
 var hbs = require("express-handlebars");
+var db = require("./config/connection");
 
 var app = express();
 
@@ -21,6 +22,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//  Database Connection
+db.connect((err) => {
+  if(err) console.log("Something Happened in Database" + err);
+  else console.log("Database Connected Successfully");
+})
 
 app.use('/', userRouter);
 app.use('/admin', adminRouter);
