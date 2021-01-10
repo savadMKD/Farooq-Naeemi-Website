@@ -9,6 +9,7 @@ var adminRouter = require('./routes/admin');
 
 var hbs = require("express-handlebars");
 var db = require("./config/connection");
+var session = require("express-session");
 
 var app = express();
 
@@ -23,7 +24,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//  Database Connection
+// Session and cookie
+app.use(session({ secret: "farooq_naeemi", resave:true, saveUninitialized: false, cookie: { maxAge: 1000 * 60 * 60 * 24 } })) // 24 hour
+
+// Database Connection
 db.connect((err) => {
   if(err) console.log("Something Happened in Database" + err);
   else console.log("Database Connected Successfully");
