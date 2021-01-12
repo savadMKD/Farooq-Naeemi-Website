@@ -1,4 +1,5 @@
 var express = require('express');
+const speechcontroller = require('../controller/speechcontroller');
 var router = express.Router();
 
 /* GET home page. */
@@ -7,7 +8,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/ramadan', (req, res) => {
-  res.render('user/ramadan');
+  speechcontroller.getAllRamadanSpeeches().then((Speeches) => {
+    res.render('user/ramadan', { Speeches });
+  });
 });
 
 module.exports = router;

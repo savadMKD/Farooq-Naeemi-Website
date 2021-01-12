@@ -9,6 +9,7 @@ var adminRouter = require('./routes/admin');
 
 var hbs = require("express-handlebars");
 var db = require("./config/connection");
+var fileUpload = require("express-fileupload");
 var session = require("express-session");
 
 var app = express();
@@ -23,6 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileUpload());
 
 // Session and cookie
 app.use(session({ secret: "farooq_naeemi", resave:true, saveUninitialized: false, cookie: { maxAge: 1000 * 60 * 60 * 24 } })) // 24 hour

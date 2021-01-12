@@ -3,70 +3,20 @@
 </section>
 <main>
     <section class="cards">
+        {{#each Speeches}}
         <div class="card">
             <div class="card__image-container">
-                <img src="/images/thumb_1.jpg" alt="thumbnail image">
+                <img src="/ramadan_speeches/{{this._id}}.jpg" alt="thumbnail image">
             </div>
             <div class="card__content">
-                <p class="card__title text--medium">Swalathinte Madhuryam</p>
+                <p class="card__title text--medium">{{this.name}}</p>
                 <div class="card__info">
-                    <p class="text--medium">Watch Video</p>
-                    <p class="card__price text--medium">Part 1</p>
+                    <a target="_blank" href="{{this.link}}" class="text--medium">Watch Video</a>
+                    <p class="card__price text--medium">{{this.sub_heading}}</p>
                 </div>
             </div>
         </div>
-        {{!-- ---------------------------------------- --}}
-        <div class="card">
-            <div class="card__image-container">
-                <img src="/images/thumb_2.jpg" alt="thumbnail image">
-            </div>
-            <div class="card__content">
-                <p class="card__title text--medium">Swalathinte Madhuryam</p>
-                <div class="card__info">
-                    <p class="text--medium">Watch Video</p>
-                    <p class="card__price text--medium">Part 1</p>
-                </div>
-            </div>
-        </div>
-        {{!-- ---------------------------------------- --}}
-        <div class="card">
-            <div class="card__image-container">
-                <img src="/images/thumb_3.jpg" alt="thumbnail image">
-            </div>
-            <div class="card__content">
-                <p class="card__title text--medium">Swalathinte Madhuryam</p>
-                <div class="card__info">
-                    <p class="text--medium">Watch Video</p>
-                    <p class="card__price text--medium">Part 1</p>
-                </div>
-            </div>
-        </div>
-        {{!-- ---------------------------------------- --}}
-        <div class="card">
-            <div class="card__image-container">
-                <img src="/images/thumb_4.jpg" alt="thumbnail image">
-            </div>
-            <div class="card__content">
-                <p class="card__title text--medium">Swalathinte Madhuryam</p>
-                <div class="card__info">
-                    <p class="text--medium">Watch Video</p>
-                    <p class="card__price text--medium">Part 1</p>
-                </div>
-            </div>
-        </div>
-        {{!-- ---------------------------------------- --}}
-        <div class="card">
-            <div class="card__image-container">
-                <img src="/images/thumb_5.jpg" alt="thumbnail image">
-            </div>
-            <div class="card__content">
-                <p class="card__title text--medium">Salafikk Marupadi</p>
-                <div class="card__info">
-                    <p class="text--medium">Watch Video</p>
-                    <p class="card__price text--medium">Part 1</p>
-                </div>
-            </div>
-        </div>
+        {{/each}}
     </section>
 </main>
 

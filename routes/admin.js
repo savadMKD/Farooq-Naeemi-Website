@@ -1,7 +1,7 @@
 const { response } = require('express');
 var express = require('express');
-const { admin_login } = require('../controller/authcontroller');
 const authcontroller = require('../controller/authcontroller');
+const speechcontroller = require('../controller/speechcontroller');
 var router = express.Router();
 
 // -------- Checking admin is logged in
@@ -39,6 +39,20 @@ router.post('/login', (req, res) => {
   }).catch((response) => {
     req.session.login_error = "Username or Password is incorrect";
     res.redirect('/admin/login');
+  });
+});
+
+router.get('/add_ramadan', verify_login, (req, res) => {
+  res.render('admin/add_ramadan');
+});
+
+router.post('/add_ramadan', (req, res) => {
+  speechcontroller.add_ramadan_speech(req.body).then((speech_id) => {
+    let image = req.files.Image
+    image.mv("./public/ramadan_speeches/" + speech_id + ".jpg", (err) => {
+      if(!err) res.redirect('/admin/add_ramadan');
+      else console.log(err);
+    });
   });
 });
 
