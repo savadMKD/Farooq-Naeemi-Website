@@ -1,0 +1,36 @@
+<!-- Admin_Login -->
+<section class="admin_login">
+    <div class="admin_login_container">
+        <form action="/admin/edit_ramadan/{{speeches._id}}" method="POST" enctype="multipart/form-data">
+            <div class="admin_login_input_group">
+                <label for="name">Enter Name of The Speech ( Ramadan )</label>
+                <input type="text" name="name" value="{{speeches.name}}" id="name">
+            </div>
+            <div class="admin_login_input_group">
+                <label for="Part_of_speech">Enter Subheading ( Ramadan )</label>
+                <input type="text" name="sub_heading" value="{{speeches.sub_heading}}" id="Part_of_speech">
+            </div>
+            <div class="admin_login_input_group">
+                <label for="Part_of_speech">Enter Link of Speech ( Ramadan )</label>
+                <input type="text" name="link" value="{{speeches.link}}" id="Part_of_speech">
+            </div>
+            <div class="admin_login_input_group">
+                <img style="width: 100px;" src="/ramadan_speeches/{{speeches._id}}.jpg" id="image_view" alt="">
+            </div>
+            <div class="admin_login_input_group">
+                <label for="Image">Upload Image ( Ramadan )</label>
+                <input type="file" name="Image" id="Image" onchange="view_image(event)">
+            </div>
+            <br>
+            <div class="admin_login_input_group button_group">
+                <input type="submit" value="submit">
+            </div>
+        </form>
+    </div>
+</section>
+
+<script>
+    const view_image = (event) => {
+        document.getElementById('image_view').src = URL.createObjectURL(event.target.files[0])
+    };
+</script>

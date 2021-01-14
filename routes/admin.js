@@ -72,4 +72,21 @@ router.get('/delete_ramadan/:id', (req, res) => {
   });
 });
 
+// Edit Ramadan Speech
+router.get('/edit_ramadan/:id', verify_login, async (req, res) => {
+  let speeches = await speechcontroller.getRamadanSpeechDeatils(req.params.id);
+  res.render('admin/edit_ramadan', { speeches });
+});
+
+router.post('/edit_ramadan/:id', (req, res) => {
+  let speech_id = req.params.id;
+  speechcontroller.updateRamadanSpeech(speech_id, req.body).then(() => {
+    res.redirect('/admin/ramadan');
+    if(req.files.Image){
+      let image = req.files.Image;
+      image.mv("./public/ramadan_speeches/" + speech_id + ".jpg");
+    }
+  });
+});
+
 module.exports = router;
