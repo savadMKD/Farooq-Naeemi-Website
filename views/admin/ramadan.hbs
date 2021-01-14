@@ -1,0 +1,84 @@
+<div class="add"><a href="/admin/add_ramadan">Add Ramadan Speeches</a></div>
+<table class="ramadan_speeches">
+    <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Subheading</th>
+        <th>Operations</th>
+    </tr>
+    {{#each Speeches}}
+    <tr>
+        <td><img style="width: 100px;" src="/ramadan_speeches/{{this._id}}.jpg" alt="thumbanail"></td>
+        <td>{{this.name}}</td>
+        <td>{{this.sub_heading}}</td>
+        <td>
+            <a href="#"><i class='bx bx-edit'></i></a>
+            <a href="{{this.link}}"><i class='bx bx-play-circle'></i></a>
+            <a href="#"><i class='bx bx-trash'></i></a>
+        </td>
+    </tr>
+    {{/each}}
+</table>
+
+<style>
+    .add {
+        background: chocolate;
+        width: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 0 10px 0;
+        position: absolute;
+        top: 130px;
+        right: 230px;
+    }
+    .add a {
+        color: #fff;
+    }
+    table {
+        border-collapse: collapse;
+        width: 900px;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    table td,
+    table th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        cursor: pointer;
+    }
+    table tr:nth-child(even){
+        background-color: #f2f2f2;
+    }
+    table tr:hover {
+        background: #ddd;
+    }
+    table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: chocolate;
+        color: white;
+    }
+
+    table td:last-child {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    @media screen and (max-width: 768px){
+        table {
+            border-collapse: collapse;
+            width: 500px;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+</style>

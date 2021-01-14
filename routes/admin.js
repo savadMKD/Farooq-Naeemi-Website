@@ -16,9 +16,10 @@ const verify_login = (req, res, next) => {
 
 /* GET users listing. */
 router.get('/', verify_login, function(req, res, next) {
-  res.render('user/home');
+  res.render('admin/home');
 });
 
+// rendering login page
 router.get('/login', (req, res) => {
   let admin_login_error = req.session.login_error;
   if(req.session.logged_in){
@@ -42,6 +43,7 @@ router.post('/login', (req, res) => {
   });
 });
 
+// Rendering admins Page
 router.get('/add_ramadan', verify_login, (req, res) => {
   res.render('admin/add_ramadan');
 });
@@ -55,5 +57,12 @@ router.post('/add_ramadan', (req, res) => {
     });
   });
 });
+
+// rendering admins page 
+router.get('/ramadan', verify_login, (req, res) => {
+  speechcontroller.getAllRamadanSpeeches().then((Speeches) => {
+    res.render('admin/ramadan', { Speeches });
+  });
+})
 
 module.exports = router;

@@ -1,0 +1,39 @@
+<section class="admin">
+    <div class="admin_container">
+        <div class="box"><a href="#">History Speeches</a></div>
+        <div class="box"><a href="/admin/ramadan">Ramadan Speeches</a></div>
+        <div class="box"><a href="#">madhu Speeches</a></div>
+        <div class="box"><a href="#">ideolagy Speeches</a></div>
+        <div class="box"><a href="#">ssf Speeches</a></div>
+        <div class="box"><a href="#">clases Speeches</a></div>
+        <div class="box"><a href="#">other Speeches</a></div>
+    </div>
+</section>
+
+<style>
+    .admin {
+        padding: 100px;
+    }
+    .admin_container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        align-items: center;
+    }
+    .box {
+        margin: 10px;
+        background: chocolate;
+        padding: 5px 25px;
+    }
+    .box a {
+        color: #fff;
+    }
+
+    @media screen and (max-width: 768px){
+        .admin {
+            padding: 100px 20px;
+        }
+        .admin_container {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+</style>
