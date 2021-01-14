@@ -1,4 +1,3 @@
-const { response } = require('express');
 var express = require('express');
 const authcontroller = require('../controller/authcontroller');
 const speechcontroller = require('../controller/speechcontroller');
@@ -58,11 +57,19 @@ router.post('/add_ramadan', (req, res) => {
   });
 });
 
-// rendering admins page 
+// rendering ramadan page 
 router.get('/ramadan', verify_login, (req, res) => {
   speechcontroller.getAllRamadanSpeeches().then((Speeches) => {
     res.render('admin/ramadan', { Speeches });
   });
 })
+
+// Delete Ramadan speeches
+router.get('/delete_ramadan/:id', (req, res) => {
+  let speech_id = req.params.id;
+  speechcontroller.deleteRamadanSpeeches(speech_id).then((response) => {
+    res.redirect('/admin/ramadan');
+  });
+});
 
 module.exports = router;
